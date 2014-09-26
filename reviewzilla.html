@@ -1,0 +1,61 @@
+<head>
+</head>
+
+<body>
+<div class="main-frame">
+    <div style="border:1px solid grey;text-align:right; height:25px">
+        Sign in to ReviewZilla{{> loginButtons}}
+    </div>
+
+    <div style="border:1px solid grey; position:absolute; top:30px; left:30px">
+        {{> reviewSummary}}
+    </div>
+
+    <div style="border:1px solid grey; position:absolute; height:120px; width:570px; top:150px; left:30px">
+        {{> newReview}}
+    </div>
+
+    <div style="border:1px solid grey; position:absolute; height:120px; width:550px; top:270px; left:40px">
+
+    </div>
+
+</div>
+</body>
+
+<template name="reviewSummary">
+    <canvas id="starMean" width=150 height=20></canvas>
+    <div style="border:1px solid grey;position:absolute; top:0px; left:200px; width:100px">
+        {{reviews}} reviews
+    </div>
+</template>
+
+<template name="newReview">
+    <canvas id="starNew" style="position:absolute;left:0px" width=150 height=20></canvas>
+
+    <div style="border:1px solid grey;position:absolute; top:30px; left:0px; width:100px">
+        <textarea id="reviewText" name="reviewText" style="position:absolute; top:30;left:0px;width:550px"></textarea>
+    </div>
+    <div style="border:1px solid grey;position:absolute; top:80px; width:560px">
+        <div style="float: left">
+            <input type="button" class="reviewClass" value="add review">
+        </div>
+        <div style="float: right">
+            <div style="float:left">
+                <select style="width:150px;">
+                    <option><h6>Trustworthiness</h6></option>
+                    <option></option>
+                </select>
+            </div>
+            <div style="float:right"><a href="#"><h6>Newest</h6> </a> </div>
+        </div>
+    </div>
+</template>
+
+<template name="reviews">
+    <ul>
+        <li>
+
+        </li>
+    </ul>
+</template>
+
