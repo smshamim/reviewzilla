@@ -1,6 +1,9 @@
+Reviews = new Mongo.Collection("reviews");
+
 Meteor.autorun(function (){
     Meteor.subscribe("all-reviews");
 });
+
 
 Template.reviewSummary.rendered = function() {
     drawStar(document.getElementById("starMean"), 5, 3);
@@ -10,8 +13,14 @@ Template.reviewSummary.helpers({
     numberOfStarts: function() {
         return ["1", "2", "3", "4", "5"];
     },
-    reviews: function() {
+    reviewTotal: function() {
         return 20;
+    }
+});
+
+Template.reviews.helpers({
+    reviews: function() {
+        return Reviews.find();
     }
 });
 

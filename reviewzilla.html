@@ -3,8 +3,14 @@
 
 <body>
 <div class="main-frame">
-    <div style="border:1px solid grey;text-align:right; height:25px">
-        Sign in to ReviewZilla{{> loginButtons}}
+    <div style="text-align:right; height:25px">
+        {{#if currentUser}}
+            {{> loginButtons}}
+        {{/if}}
+        {{#unless currentUser}}
+            Sign in to ReviewZilla
+            {{> loginButtons}}
+        {{/unless}}
     </div>
 
     <div style="border:1px solid grey; position:absolute; top:30px; left:30px">
@@ -16,7 +22,7 @@
     </div>
 
     <div style="border:1px solid grey; position:absolute; height:120px; width:550px; top:270px; left:40px">
-
+        {{> reviews}}
     </div>
 
 </div>
@@ -25,7 +31,7 @@
 <template name="reviewSummary">
     <canvas id="starMean" width=150 height=20></canvas>
     <div style="border:1px solid grey;position:absolute; top:0px; left:200px; width:100px">
-        {{reviews}} reviews
+        {{reviewTotal}} reviews
     </div>
 </template>
 
@@ -53,9 +59,12 @@
 
 <template name="reviews">
     <ul>
-        <li>
-
+        {{#each reviews}}
+        <li style="float: left">
+            {{reviewText}}
         </li>
+        <br>
+        {{/each}}
     </ul>
 </template>
 
